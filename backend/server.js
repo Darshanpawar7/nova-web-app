@@ -8,7 +8,12 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors());
+const cors = require("cors");
+
+app.use(cors({
+  origin: "https://nova-web-eosin.vercel.app",
+  credentials: true
+}));
 app.use(express.json());
 
 // MongoDB Connection
