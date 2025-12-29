@@ -23,7 +23,7 @@ export const GameProvider = ({ children }) => {
     try {
       const token = localStorage.getItem('token');
       if (token) {
-        const response = await axios.get('http://localhost:5000/api/progress', {
+        const response = await axios.get('https://nova-web-app-aqho.onrender.com/api/progress', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProgress(response.data);
@@ -35,7 +35,7 @@ export const GameProvider = ({ children }) => {
 
   const fetchLeaderboard = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/leaderboard');
+      const response = await axios.get('https://nova-web-app-aqho.onrender.com/api/leaderboard');
       setLeaderboard(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.error('Error fetching leaderboard:', error);
@@ -45,7 +45,7 @@ export const GameProvider = ({ children }) => {
 
   const fetchQuizzes = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/quizzes');
+      const response = await axios.get('https://nova-web-app-aqho.onrender.com/api/quizzes');
       setQuizzes(Array.isArray(response.data) ? response.data : []);
       setLoading(false);
     } catch (error) {
@@ -57,7 +57,7 @@ export const GameProvider = ({ children }) => {
 
   const updateProgress = async (updateData) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/progress', updateData);
+      const response = await axios.post('https://nova-web-app-aqho.onrender.com/api/progress', updateData);
       setProgress(response.data);
       return { success: true };
     } catch (error) {
@@ -67,7 +67,7 @@ export const GameProvider = ({ children }) => {
 
   const submitQuiz = async (quizId, answers) => {
     try {
-      const response = await axios.post(`http://localhost:5000/api/quizzes/${quizId}/attempt`, { answers });
+      const response = await axios.post(`https://nova-web-app-aqho.onrender.com/api/quizzes/${quizId}/attempt`, { answers });
       await fetchProgress(); // Refresh progress to update XP
       return { success: true, data: response.data };
     } catch (error) {

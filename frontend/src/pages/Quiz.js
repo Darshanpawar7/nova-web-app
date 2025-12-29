@@ -188,8 +188,8 @@ const Quiz = () => {
             <div style={{ marginTop: '1rem' }}>
               <p><strong>To add sample data:</strong></p>
               <ol style={{ textAlign: 'left', marginLeft: '2rem' }}>
-                <li>Ensure backend is running on http://localhost:5000</li>
-                <li>Visit: http://localhost:5000/api/seed-data</li>
+                <li>Ensure backend is running on https://nova-web-app-aqho.onrender.com</li>
+                <li>Visit: https://nova-web-app-aqho.onrender.com/api/seed-data</li>
                 <li>Refresh this page</li>
               </ol>
             </div>
